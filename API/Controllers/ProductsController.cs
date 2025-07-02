@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,6 +49,43 @@ namespace API.Controllers
                 new { id = P.Id },
                 P
             );
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> deleteProducto(int id)
+        {
+            var producto = await _context.Products.FindAsync(id);
+
+            if (producto == null)
+            {
+                NotFound();
+            }
+            _context.Products.Remove(producto);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProducto(int id, Products P)
+        {
+            if (id != null)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(P).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return NoContent();
         }
     }
 }
