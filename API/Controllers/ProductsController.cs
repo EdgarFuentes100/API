@@ -20,6 +20,18 @@ namespace API.Controllers
             _context = context;
         }
 
+        [HttpGet("{id}")]
+        public async Task<Products> productoId(int id)
+        {
+            var producto = await _context.Products.FindAsync(id);
+
+            if (producto == null)
+            {
+                NotFound();
+            }
+            return producto;
+        }
+
         [HttpGet]
         public async Task<List<Products>> GetProductos()
         {
