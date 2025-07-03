@@ -8,7 +8,7 @@ namespace API.Models
         public string Name { get; set; }
 
         [JsonIgnore] // evita que Swagge usen esta propiedad
-        public List<Products> Productos { get; set; } 
+        public List<Products>? Productos { get; set; } 
 
     }
 }

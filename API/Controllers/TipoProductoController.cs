@@ -48,16 +48,15 @@ namespace API.Controllers
         }
 
         /// Obtiene todos los tipos de productos
-        [HttpGet("CrearTipoProducto")]
+        [HttpPost("CrearTipoProducto")]
         public async Task<ActionResult<TipoProducto>> PostTipo(TipoProducto tipoProducto)
         {
             try
             {
-                var tipo = _context.TipoProducto.Add(tipoProducto);
+                _context.TipoProducto.Add(tipoProducto);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction(
-                    nameof(GetTipoPorId), new { id = tipoProducto.Id });
+                return CreatedAtAction(nameof(GetTipoPorId), new { id = tipoProducto.Id }, tipoProducto);
             }
             catch (System.Exception e)
             {
