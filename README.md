@@ -24,28 +24,28 @@ Tambien permite crear un Tipo de producto, necesario para crear un producto nuev
 
 1. Clona el repositorio:
 
-git clone https://github.com/tuUsuario/tuRepositorio.git
+   git clone https://github.com/EdgarFuentes100/API.git
 
 
 2. Configurar la cadena de conexión
-Edita appsettings.json:
+   Edita appsettings.json:
 
-"ConnectionStrings": {
-  "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
-}
+   "ConnectionStrings": {
+     "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
+   }
 
 3. Ejecutar migraciones y correr la API
-add-migration
-update-database
+   add-migration
+   update-database
 
-Nota: Si ya hay migraciones, borrarlas y ejecutarlas una nueva
+   Nota: Si ya hay migraciones, borrarlas y ejecutarlas una nueva
 
 4. Acceder a la documentación Swagger
-https://localhost:7017/swagger
+   https://localhost:7017/swagger
 
 5. Endpoints disponibles
 
------------------PRODUCTS---------------------------
+                        PRODUCTS
 | Método | Ruta                                      | Descripción                     |
 | ------ | ----------------------------------------- | ------------------------------- |
 | GET    | `/api/Products/ListaDeProductos`          | Lista todos los productos       |
@@ -54,7 +54,7 @@ https://localhost:7017/swagger
 | PUT    | `/api/Products/ActualizarProducto/{id}`   | Actualiza un producto existente |
 | DELETE | `/api/Products/EliminarProducto/{id}`     | Elimina un producto por ID      |
 
----------------TIPO--PRODUCTO-------------------------
+                       TIPO PRODUCTO
 | Método | Ruta                                      | Descripción                     |
 | ------ | ----------------------------------------- | ------------------------------- |
 | GET    | `/api/Products/ListaDeTipoProducto`       | Lista todos los tipo productos  |
@@ -65,15 +65,15 @@ Ejemplo de uso
 POST /api/Products/CrearProducto
 
 -------PRODUCTS------
-{
-  "name": "Laptop",
-  "description": "HP",
-  "precio": 100,
-  "stock": 10,
-  "tipoProductoId": 1
-}
+   {
+     "name": "Laptop",
+     "description": "HP",
+     "precio": 100,
+     "stock": 10,
+     "tipoProductoId": 1
+   }
 
 -------TIPO--PRODUCTO---
-{
-  "name": "Tecnologia",
-}
+   {
+     "name": "Tecnologia",
+   }
