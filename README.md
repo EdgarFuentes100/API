@@ -30,7 +30,6 @@ Tambien permite crear un Tipo de producto, necesario para crear un producto nuev
 2. Configurar la cadena de conexión
 Edita el archivo `appsettings.json`:
 
-```json
 {
   "ConnectionStrings": {
     "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
