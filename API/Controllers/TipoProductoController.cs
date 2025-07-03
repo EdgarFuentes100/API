@@ -49,7 +49,7 @@ namespace API.Controllers
 
         /// Obtiene todos los tipos de productos
         [HttpGet("CrearTipoProducto")]
-        public async Task<ActionResult<List<TipoProducto>>> PostTipo(TipoProducto tipoProducto)
+        public async Task<ActionResult<TipoProducto>> PostTipo(TipoProducto tipoProducto)
         {
             try
             {
