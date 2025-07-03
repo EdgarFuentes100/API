@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="bd\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

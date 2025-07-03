@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20250702210551_addTipoProducto")]
-    partial class addTipoProducto
+    [Migration("20250703150343_addCambioNuevos")]
+    partial class addCambioNuevos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,18 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<float>("Precio")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoProductoId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TipoProductoId");
 
                     b.ToTable("Products");
                 });
@@ -60,6 +71,22 @@ namespace API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoProducto");
+                });
+
+            modelBuilder.Entity("API.Models.Products", b =>
+                {
+                    b.HasOne("API.Models.TipoProducto", "TipoProducto")
+                        .WithMany("Productos")
+                        .HasForeignKey("TipoProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoProducto");
+                });
+
+            modelBuilder.Entity("API.Models.TipoProducto", b =>
+                {
+                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }

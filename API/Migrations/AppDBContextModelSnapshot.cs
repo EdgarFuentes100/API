@@ -37,6 +37,12 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<float>("Precio")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
                     b.Property<int>("TipoProductoId")
                         .HasColumnType("int");
 
@@ -67,7 +73,7 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Products", b =>
                 {
                     b.HasOne("API.Models.TipoProducto", "TipoProducto")
-                        .WithMany("Products")
+                        .WithMany("Productos")
                         .HasForeignKey("TipoProductoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -77,7 +83,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.TipoProducto", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }
