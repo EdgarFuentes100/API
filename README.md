@@ -74,15 +74,25 @@ Ejemplo de uso
 POST /api/Products/CrearProducto
 
 -------PRODUCTS------
+
    {
+   
      "name": "Laptop",
+     
      "description": "HP",
+     
      "precio": 100,
+     
      "stock": 10,
+     
      "tipoProductoId": 1
+     
    }
 
 -------TIPO--PRODUCTO---
+
    {
+   
      "name": "Tecnologia",
+     
    }
