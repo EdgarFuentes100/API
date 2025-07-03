@@ -28,19 +28,25 @@ Tambien permite crear un Tipo de producto, necesario para crear un producto nuev
 
 
 2. Configurar la cadena de conexión
-   Edita appsettings.json:
+Edita el archivo `appsettings.json`:
 
-   "ConnectionStrings": {
-     "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
-   }
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
+  }
+}
 
 3. Ejecutar migraciones y correr la API
+
    add-migration
+
    update-database
 
    Nota: Si ya hay migraciones, borrarlas y ejecutarlas una nueva
 
 4. Acceder a la documentación Swagger
+
    https://localhost:7017/swagger
 
 5. Endpoints disponibles
