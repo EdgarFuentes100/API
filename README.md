@@ -31,9 +31,13 @@ Tambien permite crear un Tipo de producto, necesario para crear un producto nuev
 Edita el archivo `appsettings.json`:
 
 {
+
   "ConnectionStrings": {
+  
     "DefaultConnection": "server=localhost;database=TuBaseDeDatos;user=root;password=TuPassword;"
+    
   }
+  
 }
 
 3. Ejecutar migraciones y correr la API
